@@ -21,4 +21,44 @@ public class CodeAnalyserTest {
 		} catch (CensusAnalyserException e) {
 		}
 }
+	
+	@Test
+	public void givenIndianCodeCSVFile_IfIncorrectReturnsCustomException() throws IOException {
+		try {
+			CensusAnalyser censusAnalyser = new CensusAnalyser();
+			censusAnalyser.loadIndiaCensusData(STATE_CODE_WRONG_CSV_FILE_PATH);
+		} catch (CensusAnalyserException e) {
+			Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_INTERNAL_DATA, e.type);
+		}
+	}
+
+	@Test
+	public void givenIndianCodeCSVFile_WhenCorrect_ButHeaderIncorrectReturnsCustomException() throws IOException {
+		try {
+			CensusAnalyser censusAnalyser = new CensusAnalyser();
+			censusAnalyser.loadIndiaCensusData(STATE_CODE_WRONG_HEADER_CSV_FILE_PATH);
+		} catch (CensusAnalyserException e) {
+			Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_INTERNAL_DATA, e.type);
+		}
+	}
+
+	@Test
+	public void givenIndianCodeCSVFile_WhenCorrect_ButDelimiterIncorrectReturnsCustomException() throws IOException {
+		try {
+			CensusAnalyser censusAnalyser = new CensusAnalyser();
+			censusAnalyser.loadIndiaCensusData(STATE_CODE_WRONG_DELIMITER_CSV_FILE_PATH);
+		} catch (CensusAnalyserException e) {
+			Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_INTERNAL_DATA, e.type);
+		}
+	}
+
+	@Test
+	public void givenIndianCodeCSVFile_WhenCorrect_ButTypeIncorrectReturnsCustomException() throws IOException {
+		try {
+			CensusAnalyser censusAnalyser = new CensusAnalyser();
+			censusAnalyser.loadIndiaCensusData(STATE_CODE_WRONG_TYPE_FILE_PATH);
+		} catch (CensusAnalyserException e) {
+			Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_TYPE, e.type);
+		}
+	}
 }
