@@ -2,8 +2,8 @@ package com.QuickStart;
 
 public class CSVBuilderFactory {
 
-	public static ICSVBuilder createCSVBuilder() {
-		return new OpenCSVBuilder();
+	public static <E> ICSVBuilder<E> createCSVBuilder() {
+		return new OpenCSVBuilder<E>();
 	}
 
 }
