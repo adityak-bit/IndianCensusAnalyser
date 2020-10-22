@@ -6,9 +6,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import com.QuickStart.CensusAnalyser;
-import com.QuickStart.CensusAnalyserException;
-
 public class CensusAnalyserTest {
 
 	private static final String STATE_CENSUS_CSV_FILE_PATH = "IndiaStateCensusData.csv";
