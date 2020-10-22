@@ -33,8 +33,7 @@ public class CensusAnalyser {
 	}
 
 	public int loadIndiaCodeData(String csvFilePath) throws CensusAnalyserException, IOException {
-		try {
-			Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
+		try(Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
 			CsvToBeanBuilder<IndiaCodeCSV> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
 
 			CsvToBean<IndiaCodeCSV> csvToBean = csvToBeanBuilder.withType(IndiaCodeCSV.class)
