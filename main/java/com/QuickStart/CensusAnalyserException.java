@@ -3,7 +3,7 @@ package com.QuickStart;
 public class CensusAnalyserException extends Exception {
 
 	enum ExceptionType {
-		WRONG_TYPE, WRONG_INTERNAL_DATA
+		CENSUS_FILE_PROBLEM, UNABLE_TO_PARSE
 	}
 
 	ExceptionType type;
