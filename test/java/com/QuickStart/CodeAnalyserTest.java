@@ -14,7 +14,7 @@ public class CodeAnalyserTest {
 	private static final String STATE_CODE_WRONG_DELIMITER_CSV_FILE_PATH = "IndiaStateCodeDelimiter.csv";
 
 	@Test
-	public void givenIndianCodeCSVFile_CheckNumberOfRecordMatches() throws IOException {
+	public void givenIndianCodeCSVFile_CheckNumberOfRecordMatches() throws IOException, CSVBuilderException {
 		try {
 			CensusAnalyser analyser = new CensusAnalyser();
 			int numOfRecords = analyser.loadIndiaCodeData(STATE_CODE_CSV_FILE_PATH);
@@ -24,7 +24,7 @@ public class CodeAnalyserTest {
 	}
 
 	@Test
-	public void givenIndianCodeCSVFile_IfIncorrectReturnsCustomException() throws IOException {
+	public void givenIndianCodeCSVFile_IfIncorrectReturnsCustomException() throws IOException, CSVBuilderException {
 		try {
 			CensusAnalyser censusAnalyser = new CensusAnalyser();
 			ExpectedException exceptionRule = ExpectedException.none();
@@ -36,7 +36,7 @@ public class CodeAnalyserTest {
 	}
 
 	@Test
-	public void givenIndianCodeCSVFile_WhenCorrect_ButHeaderIncorrectReturnsCustomException() throws IOException {
+	public void givenIndianCodeCSVFile_WhenCorrect_ButHeaderIncorrectReturnsCustomException() throws IOException, CSVBuilderException {
 		try {
 			CensusAnalyser censusAnalyser = new CensusAnalyser();
 			ExpectedException exceptionRule = ExpectedException.none();
@@ -48,7 +48,7 @@ public class CodeAnalyserTest {
 	}
 
 	@Test
-	public void givenIndianCodeCSVFile_WhenCorrect_ButDelimiterIncorrectReturnsCustomException() throws IOException {
+	public void givenIndianCodeCSVFile_WhenCorrect_ButDelimiterIncorrectReturnsCustomException() throws IOException, CSVBuilderException {
 		try {
 			CensusAnalyser censusAnalyser = new CensusAnalyser();
 			ExpectedException exceptionRule = ExpectedException.none();
@@ -60,7 +60,7 @@ public class CodeAnalyserTest {
 	}
 
 	@Test
-	public void givenIndianCodeCSVFile_WhenCorrect_ButTypeIncorrectReturnsCustomException() throws IOException {
+	public void givenIndianCodeCSVFile_WhenCorrect_ButTypeIncorrectReturnsCustomException() throws IOException, CSVBuilderException {
 		try {
 			CensusAnalyser censusAnalyser = new CensusAnalyser();
 			ExpectedException exceptionRule = ExpectedException.none();
