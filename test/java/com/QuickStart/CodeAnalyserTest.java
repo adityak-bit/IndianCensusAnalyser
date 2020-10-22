@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class CodeAnalyserTest {
 	private static final String STATE_CODE_CSV_FILE_PATH = "IndiaStateCode.csv";
@@ -20,15 +21,17 @@ public class CodeAnalyserTest {
 			Assert.assertEquals(37, numOfRecords);
 		} catch (CensusAnalyserException e) {
 		}
-}
-	
+	}
+
 	@Test
 	public void givenIndianCodeCSVFile_IfIncorrectReturnsCustomException() throws IOException {
 		try {
 			CensusAnalyser censusAnalyser = new CensusAnalyser();
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(CensusAnalyserException.class);
 			censusAnalyser.loadIndiaCensusData(STATE_CODE_WRONG_CSV_FILE_PATH);
 		} catch (CensusAnalyserException e) {
-			Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_INTERNAL_DATA, e.type);
+			Assert.assertEquals(CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE, e.type);
 		}
 	}
 
@@ -36,9 +39,11 @@ public class CodeAnalyserTest {
 	public void givenIndianCodeCSVFile_WhenCorrect_ButHeaderIncorrectReturnsCustomException() throws IOException {
 		try {
 			CensusAnalyser censusAnalyser = new CensusAnalyser();
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(CensusAnalyserException.class);
 			censusAnalyser.loadIndiaCensusData(STATE_CODE_WRONG_HEADER_CSV_FILE_PATH);
 		} catch (CensusAnalyserException e) {
-			Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_INTERNAL_DATA, e.type);
+			Assert.assertEquals(CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE, e.type);
 		}
 	}
 
@@ -46,9 +51,11 @@ public class CodeAnalyserTest {
 	public void givenIndianCodeCSVFile_WhenCorrect_ButDelimiterIncorrectReturnsCustomException() throws IOException {
 		try {
 			CensusAnalyser censusAnalyser = new CensusAnalyser();
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(CensusAnalyserException.class);
 			censusAnalyser.loadIndiaCensusData(STATE_CODE_WRONG_DELIMITER_CSV_FILE_PATH);
 		} catch (CensusAnalyserException e) {
-			Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_INTERNAL_DATA, e.type);
+			Assert.assertEquals(CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE, e.type);
 		}
 	}
 
@@ -56,9 +63,11 @@ public class CodeAnalyserTest {
 	public void givenIndianCodeCSVFile_WhenCorrect_ButTypeIncorrectReturnsCustomException() throws IOException {
 		try {
 			CensusAnalyser censusAnalyser = new CensusAnalyser();
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(CensusAnalyserException.class);
 			censusAnalyser.loadIndiaCensusData(STATE_CODE_WRONG_TYPE_FILE_PATH);
 		} catch (CensusAnalyserException e) {
-			Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_TYPE, e.type);
+			Assert.assertEquals(CensusAnalyserException.ExceptionType.UNABLE_TO_PARSE, e.type);
 		}
 	}
 }
