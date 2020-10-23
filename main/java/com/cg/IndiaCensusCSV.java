@@ -1,4 +1,4 @@
-package com.QuickStart;
+package com.cg;
 
 import com.opencsv.bean.CsvBindByName;
 
