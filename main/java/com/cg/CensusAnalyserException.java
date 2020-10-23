@@ -1,4 +1,4 @@
-package com.QuickStart;
+package com.cg;
 
 public class CensusAnalyserException extends Exception {
 

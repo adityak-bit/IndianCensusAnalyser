@@ -1,4 +1,4 @@
-package com.QuickStart;
+package com.cg.csvbuilder;
 
 public class CSVBuilderException extends Exception {
 	

@@ -1,10 +1,13 @@
-package com.QuickStart;
+package com.cg;
 
 import java.io.IOException;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import com.cg.csvbuilder.CSVBuilderException;
+import com.cg.CensusAnalyser;
 
 public class CensusAnalyserTest {
 
