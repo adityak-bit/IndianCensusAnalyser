@@ -3,6 +3,10 @@ package com.cg;
 import com.opencsv.bean.CsvBindByName;
 
 public class IndiaCodeCSV {
+	
+	public enum Header{
+		SRNO,STATENAME,TIN,STATECODE
+	}
 
 	@CsvBindByName(column = "SrNo", required = true)
 	int srNo;
