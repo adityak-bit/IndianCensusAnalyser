@@ -3,6 +3,10 @@ package com.cg;
 import com.opencsv.bean.CsvBindByName;
 
 public class IndiaCensusCSV {
+	
+	public enum Header{
+		STATE,POPULATION,AREAINSQKM,DENSITYPERSQKM
+	}
 
 	@CsvBindByName(column = "State", required = true)
 	public String state;

@@ -6,8 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import com.cg.csvbuilder.CSVBuilderException;
-import com.cg.CensusAnalyser;
+import com.cg.commonscsv.CSVBuilderException;
 
 public class CodeAnalyserTest {
 	private static final String STATE_CODE_CSV_FILE_PATH = "IndiaStateCode.csv";
@@ -21,7 +20,7 @@ public class CodeAnalyserTest {
 		try {
 			CensusAnalyser analyser = new CensusAnalyser();
 			int numOfRecords = analyser.loadIndiaCodeData(STATE_CODE_CSV_FILE_PATH);
-			Assert.assertEquals(37, numOfRecords);
+			Assert.assertEquals(38, numOfRecords);
 		} catch (CensusAnalyserException e) {
 		}
 	}
